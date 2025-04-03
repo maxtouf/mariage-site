@@ -1,13 +1,13 @@
-import React from 'react'
-import './globals.css'
+import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
+const playfairDisplay = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair-display' })
 
-export const metadata = {
-  title: 'Notre Mariage',
-  description: 'Célébrez avec nous notre union',
+export const metadata: Metadata = {
+  title: 'Mariage de Maxime & Cousin',
+  description: 'Site web du mariage de Maxime & Cousin',
 }
 
 export default function RootLayout({
@@ -17,8 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className={`${inter.variable} ${playfair.variable} font-sans`}>
-        <main className="min-h-screen">
+      <body className={`${inter.variable} ${playfairDisplay.variable} font-sans`}>
+        <main className="min-h-screen bg-background">
           {children}
         </main>
       </body>
