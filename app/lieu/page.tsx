@@ -1,97 +1,109 @@
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Lieu() {
   return (
-    <div className="min-h-screen bg-[#faf7f5] py-20">
-      <div className="container mx-auto px-4">
-        <Link 
-          href="/"
-          className="inline-block mb-12 text-[#d4a373] hover:text-[#b08d62] transition-colors"
-        >
-          ← Retour à l'accueil
-        </Link>
+    <div className="min-h-screen py-12 sm:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl font-serif">
+            Le Lieu
+          </h1>
+          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+            Où nous célèbrerons notre mariage
+          </p>
+        </div>
 
-        <h1 className="text-center font-playfair text-5xl mb-16 text-gray-800">
-          Le Lieu
-        </h1>
-
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Cérémonie */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="font-playfair text-3xl mb-4 text-gray-800">
-                La Cérémonie
-              </h2>
-              <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
-                <Image
-                  src="/images/eglise.jpg"
-                  alt="Église Saint-Pierre"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="space-y-2 text-gray-600">
-                <p>Église Saint-Pierre</p>
-                <p>1 Place de l'Église</p>
-                <p>75000 Paris</p>
-              </div>
-              <a
-                href="https://goo.gl/maps/xyz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-4 px-6 py-2 bg-[#d4a373] text-white rounded-lg hover:bg-[#b08d62] transition-colors"
-              >
-                Voir sur Google Maps
-              </a>
+        <div className="mt-16 lg:mt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+            {/* Image */}
+            <div className="relative h-64 lg:h-full">
+              <Image
+                src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3"
+                alt="Lieu du mariage"
+                fill
+                className="object-cover rounded-lg shadow-lg"
+              />
             </div>
 
-            {/* Réception */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="font-playfair text-3xl mb-4 text-gray-800">
-                La Réception
-              </h2>
-              <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
-                <Image
-                  src="/images/chateau.jpg"
-                  alt="Château des Roses"
-                  fill
-                  className="object-cover"
-                />
+            {/* Informations */}
+            <div className="space-y-8">
+              {/* Cérémonie civile */}
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 font-serif">Cérémonie civile</h2>
+                <div className="mt-4 space-y-2">
+                  <p className="text-gray-600">Mairie de la ville</p>
+                  <p className="text-gray-600">1 Place de la Mairie</p>
+                  <p className="text-gray-600">75000 Paris</p>
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center mt-2 text-primary hover:text-accent"
+                  >
+                    <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Voir sur Google Maps
+                  </a>
+                </div>
               </div>
-              <div className="space-y-2 text-gray-600">
-                <p>Château des Roses</p>
-                <p>123 Avenue des Fleurs</p>
-                <p>75000 Paris</p>
+
+              {/* Cérémonie religieuse */}
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 font-serif">Cérémonie religieuse</h2>
+                <div className="mt-4 space-y-2">
+                  <p className="text-gray-600">Église de la ville</p>
+                  <p className="text-gray-600">2 Rue de l'Église</p>
+                  <p className="text-gray-600">75000 Paris</p>
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center mt-2 text-primary hover:text-accent"
+                  >
+                    <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Voir sur Google Maps
+                  </a>
+                </div>
               </div>
-              <a
-                href="https://goo.gl/maps/abc"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-4 px-6 py-2 bg-[#d4a373] text-white rounded-lg hover:bg-[#b08d62] transition-colors"
-              >
-                Voir sur Google Maps
-              </a>
+
+              {/* Réception */}
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 font-serif">Réception</h2>
+                <div className="mt-4 space-y-2">
+                  <p className="text-gray-600">Domaine de la Réception</p>
+                  <p className="text-gray-600">3 Route du Domaine</p>
+                  <p className="text-gray-600">75000 Paris</p>
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center mt-2 text-primary hover:text-accent"
+                  >
+                    <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Voir sur Google Maps
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Informations supplémentaires */}
-          <div className="mt-12 bg-white rounded-lg shadow-sm p-6">
-            <h2 className="font-playfair text-3xl mb-4 text-gray-800">
-              Comment venir ?
-            </h2>
-            <div className="space-y-4 text-gray-600">
-              <div>
-                <h3 className="font-semibold mb-2">En voiture</h3>
-                <p>Parking gratuit disponible sur place</p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">En transport en commun</h3>
-                <p>Métro : Ligne 1, station Saint-Paul</p>
-                <p>Bus : Lignes 69, 76, 96, arrêt Saint-Paul</p>
-              </div>
-            </div>
-          </div>
+        <div className="mt-16 text-center">
+          <Link
+            href="/hebergement"
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-accent transition-colors"
+          >
+            Voir les hébergements
+          </Link>
         </div>
       </div>
     </div>
