@@ -1,108 +1,134 @@
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
+
+const hotels = [
+  {
+    name: 'Hôtel Le Luxe',
+    description: 'Un hôtel 4 étoiles offrant confort et élégance à proximité du lieu de réception.',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3',
+    price: 'À partir de 150€/nuit',
+    features: ['Wi-Fi gratuit', 'Petit-déjeuner inclus', 'Parking', 'Restaurant'],
+    website: 'https://example.com',
+  },
+  {
+    name: 'Résidence Le Confort',
+    description: 'Une résidence moderne et confortable, idéale pour les familles.',
+    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3',
+    price: 'À partir de 120€/nuit',
+    features: ['Kitchenette équipée', 'Wi-Fi gratuit', 'Parking', 'Climatisation'],
+    website: 'https://example.com',
+  },
+  {
+    name: 'Hôtel Le Charme',
+    description: 'Un charmant hôtel de caractère dans un cadre historique.',
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3',
+    price: 'À partir de 100€/nuit',
+    features: ['Wi-Fi gratuit', 'Bar', 'Jardin', 'Réception 24/7'],
+    website: 'https://example.com',
+  },
+]
 
 export default function Hebergement() {
-  const hotels = [
-    {
-      name: 'Hôtel du Château',
-      description: 'À 5 minutes à pied du lieu de réception',
-      image: '/images/hotel1.jpg',
-      price: 'À partir de 120€/nuit',
-      features: ['Wi-Fi gratuit', 'Petit-déjeuner inclus', 'Parking'],
-      website: 'https://hotel-chateau.com'
-    },
-    {
-      name: 'Le Grand Hôtel',
-      description: 'En plein centre-ville, à 10 minutes en voiture',
-      image: '/images/hotel2.jpg',
-      price: 'À partir de 150€/nuit',
-      features: ['Restaurant gastronomique', 'Spa', 'Service voiturier'],
-      website: 'https://legrandhotel.com'
-    },
-    {
-      name: 'Résidence Les Jardins',
-      description: 'Appartements pour 2 à 4 personnes',
-      image: '/images/hotel3.jpg',
-      price: 'À partir de 90€/nuit',
-      features: ['Cuisine équipée', 'Terrasse privée', 'Parking gratuit'],
-      website: 'https://residence-jardins.com'
-    }
-  ]
-
   return (
-    <div className="min-h-screen bg-[#faf7f5] py-20">
-      <div className="container mx-auto px-4">
-        <Link 
-          href="/"
-          className="inline-block mb-12 text-[#d4a373] hover:text-[#b08d62] transition-colors"
-        >
-          ← Retour à l'accueil
-        </Link>
+    <div className="min-h-screen py-12 sm:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl font-serif">
+            Hébergement
+          </h1>
+          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+            Où se loger pour notre mariage
+          </p>
+        </div>
 
-        <h1 className="text-center font-playfair text-5xl mb-16 text-gray-800">
-          Hébergement
-        </h1>
-
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {hotels.map((hotel, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden">
-                <div className="relative h-48">
-                  <Image
-                    src={hotel.image}
-                    alt={hotel.name}
-                    fill
-                    className="object-cover"
+        {/* Information importante */}
+        <div className="mt-12 bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="px-4 py-5 sm:p-6">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
+                </svg>
+              </div>
+              <div className="ml-3">
+                <h3 className="text-lg font-medium text-gray-900">Information importante</h3>
+                <div className="mt-2 text-sm text-gray-500">
+                  <p>
+                    Nous avons négocié des tarifs préférentiels avec ces établissements.
+                    N'oubliez pas de mentionner "Mariage Maxime & Cousin" lors de votre réservation.
+                  </p>
                 </div>
-                <div className="p-6">
-                  <h2 className="font-playfair text-2xl mb-2 text-gray-800">
-                    {hotel.name}
-                  </h2>
-                  <p className="text-gray-600 mb-4">
-                    {hotel.description}
-                  </p>
-                  <p className="text-[#d4a373] font-semibold mb-4">
-                    {hotel.price}
-                  </p>
-                  <ul className="space-y-2 mb-6">
-                    {hotel.features.map((feature, idx) => (
-                      <li key={idx} className="text-gray-600 flex items-center">
-                        <svg className="w-4 h-4 mr-2 text-[#d4a373]" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Liste des hôtels */}
+        <div className="mt-12 grid gap-8 lg:grid-cols-3">
+          {hotels.map((hotel) => (
+            <div
+              key={hotel.name}
+              className="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white"
+            >
+              <div className="flex-shrink-0 relative h-48">
+                <Image
+                  src={hotel.image}
+                  alt={hotel.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex-1 p-6 flex flex-col justify-between">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-gray-900">{hotel.name}</h3>
+                  <p className="mt-3 text-base text-gray-500">{hotel.description}</p>
+                  <p className="mt-3 text-lg font-medium text-primary">{hotel.price}</p>
+                  <ul className="mt-4 space-y-2">
+                    {hotel.features.map((feature) => (
+                      <li key={feature} className="flex items-center text-sm text-gray-500">
+                        <svg
+                          className="flex-shrink-0 h-5 w-5 text-green-500"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
                         </svg>
-                        {feature}
+                        <span className="ml-2">{feature}</span>
                       </li>
                     ))}
                   </ul>
+                </div>
+                <div className="mt-6">
                   <a
                     href={hotel.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block w-full text-center px-6 py-2 bg-[#d4a373] text-white rounded-lg hover:bg-[#b08d62] transition-colors"
+                    className="block w-full text-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-accent transition-colors"
                   >
                     Réserver
                   </a>
                 </div>
               </div>
-            ))}
-          </div>
-
-          <div className="mt-16 bg-white rounded-lg shadow-sm p-8">
-            <h2 className="font-playfair text-3xl mb-6 text-gray-800">
-              Informations importantes
-            </h2>
-            <div className="space-y-4 text-gray-600">
-              <p>
-                Nous avons négocié des tarifs préférentiels pour nos invités dans ces établissements.
-                N'oubliez pas de mentionner le code "MARIAGE2024" lors de votre réservation.
-              </p>
-              <p>
-                Pour toute question concernant l'hébergement, n'hésitez pas à nous contacter
-                directement ou à contacter notre wedding planner au 06 12 34 56 78.
-              </p>
             </div>
-          </div>
+          ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link
+            href="/rsvp"
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-accent transition-colors"
+          >
+            Confirmer votre présence
+          </Link>
         </div>
       </div>
     </div>
