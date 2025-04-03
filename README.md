@@ -1,64 +1,83 @@
-# Site Web de Mariage
+# Site de Mariage - Maxime & Cousin
 
-Un site web élégant et responsive pour notre mariage, construit avec Next.js et Tailwind CSS.
-
-## Fonctionnalités
-
-- 📅 Compte à rebours jusqu'au jour J
-- 📍 Informations sur les lieux (cérémonie et réception)
-- 🏨 Liste des hébergements recommandés
-- 📝 Formulaire RSVP interactif
-- 📱 Design responsive pour tous les appareils
+Ce site web a été créé pour notre mariage qui aura lieu le 15 juin 2024. Il permet aux invités de consulter toutes les informations importantes concernant l'événement et de confirmer leur présence.
 
 ## Technologies utilisées
 
-- Next.js 14
-- TypeScript
-- Tailwind CSS
-- React Hooks
+- [Next.js 14](https://nextjs.org/) - Framework React
+- [TypeScript](https://www.typescriptlang.org/) - Typage statique
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS
+- [React](https://reactjs.org/) - Bibliothèque JavaScript
+
+## Fonctionnalités
+
+- Page d'accueil avec les informations essentielles
+- Programme détaillé de la journée
+- Informations sur le lieu du mariage
+- Liste des hébergements recommandés
+- Formulaire RSVP pour confirmer sa présence
 
 ## Installation
 
 1. Clonez le dépôt :
-```bash
+\`\`\`bash
 git clone https://github.com/maxtouf/mariage-site.git
 cd mariage-site
-```
+\`\`\`
 
 2. Installez les dépendances :
-```bash
+\`\`\`bash
 npm install
-```
+\`\`\`
 
 3. Lancez le serveur de développement :
-```bash
+\`\`\`bash
 npm run dev
-```
+\`\`\`
 
 4. Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-## Personnalisation
+## Scripts disponibles
 
-1. Modifiez les informations dans les fichiers :
-   - `app/page.tsx` : Page d'accueil
-   - `app/programme/page.tsx` : Programme de la journée
-   - `app/lieu/page.tsx` : Informations sur les lieux
-   - `app/hebergement/page.tsx` : Liste des hébergements
-   - `app/rsvp/page.tsx` : Formulaire RSVP
+- \`npm run dev\` - Lance le serveur de développement
+- \`npm run build\` - Crée une version de production
+- \`npm run start\` - Lance la version de production
+- \`npm run lint\` - Vérifie le code avec ESLint
 
-2. Ajoutez vos propres images dans le dossier `public/images/`
+## Structure du projet
 
-3. Personnalisez les couleurs et le style dans les classes Tailwind
+\`\`\`
+mariage-site/
+├── app/
+│   ├── components/     # Composants réutilisables
+│   ├── hebergement/    # Page des hébergements
+│   ├── lieu/          # Page du lieu
+│   ├── programme/     # Page du programme
+│   ├── rsvp/         # Page RSVP
+│   ├── globals.css   # Styles globaux
+│   ├── layout.tsx    # Layout principal
+│   └── page.tsx      # Page d'accueil
+├── public/           # Fichiers statiques
+├── .eslintrc.json   # Configuration ESLint
+├── next.config.js   # Configuration Next.js
+├── package.json     # Dépendances et scripts
+├── postcss.config.js # Configuration PostCSS
+├── tailwind.config.ts # Configuration Tailwind
+└── tsconfig.json    # Configuration TypeScript
+\`\`\`
 
 ## Déploiement
 
-Le site peut être facilement déployé sur Vercel :
+Le site peut être déployé sur [Vercel](https://vercel.com) en quelques clics :
 
-1. Créez un compte sur [Vercel](https://vercel.com)
-2. Connectez votre dépôt GitHub
-3. Importez le projet
-4. Vercel déploiera automatiquement votre site
+1. Créez un compte sur Vercel
+2. Importez ce dépôt
+3. Déployez !
+
+## Contribution
+
+Ce projet est privé et ne prend pas de contributions externes.
 
 ## Licence
 
-MIT
+Tous droits réservés © 2024 Maxime & Cousin
