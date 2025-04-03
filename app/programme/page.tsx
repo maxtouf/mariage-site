@@ -1,67 +1,95 @@
 import Link from 'next/link'
 
+const events = [
+  {
+    time: '14h30',
+    title: 'Cérémonie civile',
+    description: 'Mairie de la ville',
+  },
+  {
+    time: '15h30',
+    title: 'Cérémonie religieuse',
+    description: 'Église de la ville',
+  },
+  {
+    time: '17h00',
+    title: 'Cocktail',
+    description: 'Vin d\'honneur et animations',
+  },
+  {
+    time: '20h00',
+    title: 'Dîner',
+    description: 'Repas et animations',
+  },
+  {
+    time: '23h00',
+    title: 'Soirée dansante',
+    description: 'Ouverture du bal par les mariés',
+  },
+]
+
 export default function Programme() {
-  const timeline = [
-    {
-      time: '14:00',
-      event: 'Cérémonie',
-      description: 'Cérémonie à l\'église Saint-Pierre'
-    },
-    {
-      time: '15:30',
-      event: 'Vin d\'honneur',
-      description: 'Cocktail et photos dans les jardins du château'
-    },
-    {
-      time: '19:00',
-      event: 'Dîner',
-      description: 'Repas de mariage dans la salle de réception'
-    },
-    {
-      time: '22:00',
-      event: 'Soirée dansante',
-      description: 'Ouverture du bal par les mariés'
-    }
-  ]
-
   return (
-    <div className="min-h-screen bg-[#faf7f5] py-20">
-      <div className="container mx-auto px-4">
-        <Link 
-          href="/"
-          className="inline-block mb-12 text-[#d4a373] hover:text-[#b08d62] transition-colors"
-        >
-          ← Retour à l'accueil
-        </Link>
+    <div className="min-h-screen py-12 sm:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl font-serif">
+            Programme
+          </h1>
+          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+            Le déroulé de notre journée de mariage
+          </p>
+        </div>
 
-        <h1 className="text-center font-playfair text-5xl mb-16 text-gray-800">
-          Programme de la Journée
-        </h1>
+        <div className="mt-16 max-w-3xl mx-auto">
+          <div className="flow-root">
+            <ul role="list" className="-mb-8">
+              {events.map((event, eventIdx) => (
+                <li key={event.time}>
+                  <div className="relative pb-8">
+                    {eventIdx !== events.length - 1 ? (
+                      <span
+                        className="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200"
+                        aria-hidden="true"
+                      />
+                    ) : null}
+                    <div className="relative flex space-x-3">
+                      <div>
+                        <span className="h-8 w-8 rounded-full bg-primary flex items-center justify-center ring-8 ring-white">
+                          <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <div className="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
+                        <div>
+                          <p className="text-lg font-medium text-gray-900">{event.title}</p>
+                          <p className="mt-1 text-sm text-gray-500">{event.description}</p>
+                        </div>
+                        <div className="text-right text-sm whitespace-nowrap text-primary font-medium">
+                          {event.time}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
-        <div className="max-w-3xl mx-auto">
-          {timeline.map((item, index) => (
-            <div key={index} className="relative pl-8 pb-12 last:pb-0">
-              {/* Timeline line */}
-              <div className="absolute left-0 top-0 h-full w-px bg-[#d4a373]" />
-              
-              {/* Timeline dot */}
-              <div className="absolute left-[-4px] top-2 h-2 w-2 rounded-full bg-[#d4a373]" />
-              
-              <div className="bg-white rounded-lg shadow-sm p-6">
-                <div className="flex items-center mb-3">
-                  <span className="text-[#d4a373] font-bold text-xl">
-                    {item.time}
-                  </span>
-                  <h3 className="ml-4 font-playfair text-2xl text-gray-800">
-                    {item.event}
-                  </h3>
-                </div>
-                <p className="text-gray-600">
-                  {item.description}
-                </p>
-              </div>
-            </div>
-          ))}
+        <div className="mt-16 text-center">
+          <Link
+            href="/lieu"
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-accent transition-colors"
+          >
+            Voir le lieu du mariage
+          </Link>
         </div>
       </div>
     </div>
